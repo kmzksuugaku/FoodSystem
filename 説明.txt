@@ -1,0 +1,49 @@
+実行
+java -cp .;jsoup-1.15.3.jar SampleCode
+
+/*やりたかったこと
+		もしlistから食材を消したい場合
+		String eraseFood = Input.getFood();
+		int number = SearchThings.getSearchFoodNumber(eraseFood,list);
+		if(0 <= number) list.remove(number);
+		else System.out.println("その食材はもともと存在しません");
+		 
+		String filename = "InputList.xml";
+		RecipeListUtils.save(filename,list);
+		Inputリストから時間が10日以内になったら自動的に以下のsearchに代入
+		*/
+
+Food クラス
+システム登録者が登録した食材、年月日をローカル変数として持ちます。
+
+FoodUtilsクラス
+Foodの食材、年月日を表示するクラスです。
+Foodに依存しています。
+
+Inputクラス
+利用者にpress buttonや食材の入力、賞味期限の入力を促すメソッドをもつクラスです。
+Foodに依存しています。
+
+Food2クラス
+Foodとは違い、材料と量をローカル変数として持つクラスです。クローリングしたレシピの材料と量を出力するために作りました。
+
+Recipeクラス
+レシピの名前とFood2、つまり使う材料と量のリストをローカル変数として持つクラスです。Food2に依存しています。
+
+RecipeListクラス
+レシピリストの名前（さっきでいうと鯖　米　リスト）、とレシピたちをローカル変数として持つクラスです。レシピに依存しています。
+
+RecipeUtilsクラス
+レシピの名前、URL、材料と量の一覧を表示するメソッドを持ったクラスです。
+
+RecipeListUtilsクラス
+レシピを表示するメソッド、xmlとして保存するメソッド、レシピリストの内容が入ったxmlファイルからロードするメソッドがあります。
+
+Assignクラス
+クローリングしたデータから名前と量を取り出しレシピのリストに材料と量を代入するクラスです。
+
+Outputクラス
+タイトルや、URLや、材料や量のリストを表示するメソッドを持ったクラスです。
+
+SearchThingsクラス
+クローリングでの検索するための名前を返却するメソッド、URL、タイトル、材料の名前、量を返却するメソッド、名前とシステム利用者が入力したリストからその名前に対応する番号はどこにあるか返却するメソッドを持っているクラス
